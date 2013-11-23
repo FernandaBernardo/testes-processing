@@ -7,7 +7,7 @@ class Esfera extends Objeto{
 
   void desenha() {
     translate(x, y, 0);
-    stroke(255);
+    stroke(mouseX/5, 0, 160);
     noFill();
     sphere(tam);
   }

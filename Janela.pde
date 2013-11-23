@@ -15,6 +15,11 @@ void draw() {
   pushMatrix();
   esfera.desenha();
   popMatrix();
+  
+  if (mouseX > cubo.x - cubo.tam && mouseX < cubo.x + cubo.tam && mouseY > cubo.y - cubo.tam && mouseY < cubo.y + cubo.tam) cursor(WAIT);
+  else if (mouseX > esfera.x - esfera.tam && mouseX < esfera.x + esfera.tam && mouseY > esfera.y - esfera.tam && mouseY < esfera.y + esfera.tam) cursor(MOVE);
+  else cursor(ARROW);
+  
 }
 
 void keyPressed() {
