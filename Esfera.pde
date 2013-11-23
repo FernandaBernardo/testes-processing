@@ -8,6 +8,8 @@ class Esfera extends Objeto{
   void desenha() {
     translate(x, y, 0);
     stroke(mouseX/5, 0, 160);
+    rotateX(rotX);
+    rotateY(rotY);
     noFill();
     sphere(tam);
   }
