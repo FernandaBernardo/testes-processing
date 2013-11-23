@@ -27,9 +27,20 @@ void keyPressed() {
 
   if (keyPressed) {
     if (key == 'w') cubo.sobe();
-    if (key == 's') cubo.sobe();
+    if (key == 's') cubo.desce();
     if (key == 'd') cubo.direita();
     if (key == 'a') cubo.esquerda();
+  }
+}
+
+void mouseWheel(MouseEvent event) {
+  if (event.getAmount() > 0) {
+    cubo.diminui();
+    esfera.diminui();
+  }
+  else {
+    cubo.aumenta();
+    esfera.aumenta();
   }
 }
 

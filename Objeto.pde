@@ -24,7 +24,7 @@ abstract class Objeto {
   }
 
   void desce() {
-    if (y < heigth - tam - 5) x -= 5;
+    if (y < height - tam - 5) y += 5;
   }
 }
 
