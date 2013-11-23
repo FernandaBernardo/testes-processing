@@ -8,13 +8,13 @@ void setup() {
 }
 
 void draw() {
-  background(0);
-  pushMatrix();
-  cubo.desenha();
-  popMatrix();
-  pushMatrix();
-  esfera.desenha();
-  popMatrix();
+    background(0);
+    pushMatrix();
+    cubo.desenha();
+    popMatrix();
+    pushMatrix();
+    esfera.desenha();
+    popMatrix();
   
   if (mouseX > cubo.x - cubo.tam && mouseX < cubo.x + cubo.tam && mouseY > cubo.y - cubo.tam && mouseY < cubo.y + cubo.tam) cursor(WAIT);
   else if (mouseX > esfera.x - esfera.tam && mouseX < esfera.x + esfera.tam && mouseY > esfera.y - esfera.tam && mouseY < esfera.y + esfera.tam) cursor(MOVE);
@@ -27,13 +27,13 @@ void keyPressed() {
     if (keyCode == UP) esfera.sobe();
     if (keyCode == DOWN) esfera.desce();
     if (keyCode == RIGHT) esfera.direita();
-    if (keyCode == LEFT) esfera.esquerda();
+    if (keyCode == LEFT && !colisao()) esfera.esquerda();
   }
 
   if (keyPressed) {
     if (key == 'w') cubo.sobe();
     if (key == 's') cubo.desce();
-    if (key == 'd') cubo.direita();
+    if (key == 'd' && !colisao()) cubo.direita();
     if (key == 'a') cubo.esquerda();
   }
 }
@@ -43,9 +43,13 @@ void mouseWheel(MouseEvent event) {
     cubo.diminui();
     esfera.diminui();
   }
-  else {
+  else if (!colisao()) {
     cubo.aumenta();
     esfera.aumenta();
   }
 }
 
+boolean colisao(){
+  if (cubo.x + cubo.tam <= esfera.x - esfera.tam) return false;
+  return true;
+}
