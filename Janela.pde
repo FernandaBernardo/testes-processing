@@ -19,13 +19,17 @@ void draw() {
 
 void keyPressed() {
   if (key == CODED) {
-    if (keyCode == UP) cubo.aumenta();
-    if (keyCode == DOWN) cubo.diminui(); 
+    if (keyCode == UP) esfera.sobe();
+    if (keyCode == DOWN) esfera.desce();
+    if (keyCode == RIGHT) esfera.direita();
+    if (keyCode == LEFT) esfera.esquerda();
   }
-  
-  if(keyPressed) {
-    if (key == 'w') esfera.aumenta();
-    if (key == 's') esfera.diminui();
+
+  if (keyPressed) {
+    if (key == 'w') cubo.sobe();
+    if (key == 's') cubo.sobe();
+    if (key == 'd') cubo.direita();
+    if (key == 'a') cubo.esquerda();
   }
 }
 
