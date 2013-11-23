@@ -8,18 +8,17 @@ void setup() {
 }
 
 void draw() {
-    background(0);
-    pushMatrix();
-    cubo.desenha();
-    popMatrix();
-    pushMatrix();
-    esfera.desenha();
-    popMatrix();
-  
+  background(0);
+  pushMatrix();
+  cubo.desenha();
+  popMatrix();
+  pushMatrix();
+  esfera.desenha();
+  popMatrix();
+
   if (mouseX > cubo.x - cubo.tam && mouseX < cubo.x + cubo.tam && mouseY > cubo.y - cubo.tam && mouseY < cubo.y + cubo.tam) cursor(WAIT);
   else if (mouseX > esfera.x - esfera.tam && mouseX < esfera.x + esfera.tam && mouseY > esfera.y - esfera.tam && mouseY < esfera.y + esfera.tam) cursor(MOVE);
   else cursor(ARROW);
-  
 }
 
 void keyPressed() {
@@ -35,6 +34,11 @@ void keyPressed() {
     if (key == 's') cubo.desce();
     if (key == 'd' && !colisao()) cubo.direita();
     if (key == 'a') cubo.esquerda();
+
+    if (key == 'r') cubo.rotacionaX();
+    if (key == 't') esfera.rotacionaX();
+    if (key == 'f') cubo.rotacionaY();
+    if (key == 'g') esfera.rotacionaY();
   }
 }
 
@@ -49,7 +53,8 @@ void mouseWheel(MouseEvent event) {
   }
 }
 
-boolean colisao(){
+boolean colisao() {
   if (cubo.x + cubo.tam <= esfera.x - esfera.tam) return false;
   return true;
 }
+

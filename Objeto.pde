@@ -1,5 +1,7 @@
 abstract class Objeto {
   int x, y, tam;
+  int rotX = 0;
+  int rotY = 0;
 
   abstract void desenha();
 
@@ -25,6 +27,14 @@ abstract class Objeto {
 
   void desce() {
     if (y < height - tam - 5) y += 5;
+  }
+  
+  void rotacionaX () {
+     rotX += 20;
+  }
+  
+  void rotacionaY() {
+    rotY += 20;
   }
 }
 

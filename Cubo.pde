@@ -8,6 +8,8 @@ class Cubo extends Objeto {
   void desenha() {
     translate(x, y, 0);
     stroke(255, 0, 0);
+    rotateX(rotX);
+    rotateY(rotY);
     noFill();
     box(tam);
   }
