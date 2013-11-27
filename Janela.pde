@@ -16,7 +16,7 @@ void draw() {
   esfera.desenha();
   popMatrix();
 
-  if (mouseX > cubo.x - cubo.tam && mouseX < cubo.x + cubo.tam && mouseY > cubo.y - cubo.tam && mouseY < cubo.y + cubo.tam) cursor(WAIT);
+  if (mouseX > cubo.x - cubo.tam/2 && mouseX < cubo.x + cubo.tam/2 && mouseY > cubo.y - cubo.tam/2 && mouseY < cubo.y + cubo.tam/2) cursor(WAIT);
   else if (mouseX > esfera.x - esfera.tam && mouseX < esfera.x + esfera.tam && mouseY > esfera.y - esfera.tam && mouseY < esfera.y + esfera.tam) cursor(MOVE);
   else cursor(ARROW);
 }
@@ -24,21 +24,24 @@ void draw() {
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == UP) esfera.sobe();
-    if (keyCode == DOWN) esfera.desce();
-    if (keyCode == RIGHT) esfera.direita();
-    if (keyCode == LEFT && !colisao()) esfera.esquerda();
+    else if (keyCode == DOWN) esfera.desce();
+    else if (keyCode == RIGHT) esfera.direita();
+    else if (keyCode == LEFT && !colisao()) esfera.esquerda();
   }
 
   if (keyPressed) {
     if (key == 'w') cubo.sobe();
-    if (key == 's') cubo.desce();
-    if (key == 'd' && !colisao()) cubo.direita();
-    if (key == 'a') cubo.esquerda();
-
-    if (key == 'r') cubo.rotacionaX();
-    if (key == 't') esfera.rotacionaX();
-    if (key == 'f') cubo.rotacionaY();
-    if (key == 'g') esfera.rotacionaY();
+    else if (key == 's') cubo.desce();
+    else if (key == 'd' && !colisao()) cubo.direita();
+    else if (key == 'a') cubo.esquerda();
+    else if (key == 'r') cubo.rotacionaX();
+    else if (key == 't') esfera.rotacionaX();
+    else if (key == 'f') cubo.rotacionaY();
+    else if (key == 'g') esfera.rotacionaY();
+    else if (key == 'i') {
+      esfera.reset();
+      cubo.reset();
+    }
   }
 }
 

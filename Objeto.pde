@@ -4,6 +4,7 @@ abstract class Objeto {
   int rotY = 0;
 
   abstract void desenha();
+  abstract void reset();
 
   void aumenta() {
     tam += 10;
@@ -22,7 +23,7 @@ abstract class Objeto {
   }
 
   void sobe() {
-    if (y > 5) y -= 5;
+    if (y > tam + 5) y -= 5;
   }
 
   void desce() {
